@@ -1,5 +1,6 @@
 import {isNumber, isInteger, roundUp} from '../application/number.application';
-export default class NumberPresentation {
+import { NumberUseCase } from '../usecase/number.usecase';
+export class NumberPresentation {
     constructor(number) {
         this.number = number;
     }
@@ -32,8 +33,21 @@ export default class NumberPresentation {
     }
 
     validate() {
-        if(this.checkValue()) {
+        if(this.checkValue()) 
             return this.number;
-        }
+    }
+
+    getResult() {
+        if(this.validate())
+            return this.buildResult();
+    }
+
+    buildResult() {
+    
+       const usecase = new NumberUseCase(this.number);
+       const primes = usecase.getPrimes();
+       const divisors = usecase.getDivisors();
+
+       return  `\n Valor de entrada:${this.number} \n Numeros Divisores: ${divisors} \n Numeros Primos: ${primes}`;
     }
 }
