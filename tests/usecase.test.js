@@ -1,4 +1,4 @@
-import NumberUseCase from '../app/usecase/number.usecase';
+import { NumberUseCase } from '../app/usecase/number.usecase';
 
 test('Verify if values return diviors', () => {
    let usecase = new NumberUseCase(5);
