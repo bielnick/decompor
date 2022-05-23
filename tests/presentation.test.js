@@ -1,4 +1,4 @@
-import NumberPresentation from '../app/presentation/number.presentation';
+import { NumberPresentation } from '../app/presentation/number.presentation';
 
 test('Verify if the check method works', () => {
   let np = new NumberPresentation(5);
